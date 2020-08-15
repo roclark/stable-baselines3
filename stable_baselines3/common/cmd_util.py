@@ -59,10 +59,10 @@ def make_vec_env(
             # Create the monitor folder if needed
             if monitor_path is not None:
                 os.makedirs(monitor_dir, exist_ok=True)
-            env = Monitor(env, filename=monitor_path)
             # Optionally, wrap the environment with the provided wrapper
             if wrapper_class is not None:
                 env = wrapper_class(env)
+            env = Monitor(env, filename=monitor_path)
             return env
 
         return _init
